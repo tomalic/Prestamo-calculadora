@@ -70,6 +70,8 @@
     .footer-note{margin-top:10px;font-size:12px;color:var(--muted)}
 
   </style>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0d2230">
 </head>
 <body>
 <header>
@@ -273,5 +275,13 @@
   $('#showTable').addEventListener('click',()=>{ modal.showModal(); });
   $('#closeTable').addEventListener('click',()=>{ modal.close(); });
 </script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch(console.error);
+    });
+  }
+</script>
 </body>
 </html>
+
